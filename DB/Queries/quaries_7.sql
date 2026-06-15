@@ -35,3 +35,9 @@ SELECT booking_id, match_id, TRUNC(total_cost) AS total_cost
 FROM Bookings 
 WHERE total_cost > (SELECT AVG(total_cost) FROM Bookings)
 ORDER BY total_cost DESC;
+
+-- Q7: Pagination Offset and Limit
+SELECT match_id, fixture, TRUNC(base_ticket_price) AS base_ticket_price 
+FROM Matches 
+ORDER BY base_ticket_price DESC
+LIMIT 2 OFFSET 1;

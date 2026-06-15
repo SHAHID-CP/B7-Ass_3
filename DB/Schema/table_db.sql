@@ -1,6 +1,6 @@
 -- User table-1
 CREATE TABLE Users (
-    user_id INT UNIQUE,
+    user_id INT,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
     role VARCHAR(30) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE Users (
 
 -- Match table-2
 CREATE TABLE Matches (
-    match_id INT UNIQUE,
+    match_id INT,
     fixture VARCHAR(255) NOT NULL,
     tournament_category VARCHAR(100) NOT NULL,
     base_ticket_price NUMERIC(10, 2) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE Matches (
 
 -- Booking table-3
 CREATE TABLE Bookings (
-    booking_id INT UNIQUE,
+    booking_id INT,
     user_id INT NOT NULL,
     match_id INT NOT NULL,
     seat_number VARCHAR(20),

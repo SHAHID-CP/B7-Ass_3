@@ -16,3 +16,10 @@ SELECT booking_id, user_id, match_id,
 FROM Bookings 
 WHERE payment_status IS NULL
 ORDER BY booking_id;
+
+-- Q4: Inner Join for booking, user and match details
+SELECT booking_id,full_name,fixture,TRUNC(total_cost) AS total_cost
+FROM Bookings
+INNER JOIN Users ON Bookings.user_id = Users.user_id
+INNER JOIN Matches ON Bookings.match_id = Matches.match_id
+ORDER BY booking_id;

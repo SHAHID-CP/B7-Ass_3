@@ -3,7 +3,7 @@ CREATE TABLE Users (
     user_id SERIAL,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
-    role VARCHAR(30) NOT NULL DEFAULT 'Football Fan',
+    role VARCHAR(30) NOT NULL,
     phone_number VARCHAR(20),
     
     CONSTRAINT pk_users PRIMARY KEY (user_id),

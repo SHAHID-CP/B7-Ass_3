@@ -23,3 +23,15 @@ FROM Bookings
 INNER JOIN Users ON Bookings.user_id = Users.user_id
 INNER JOIN Matches ON Bookings.match_id = Matches.match_id
 ORDER BY booking_id;
+
+-- Q5: Left Join all users
+SELECT Users.user_id, Users.full_name, Bookings.booking_id 
+FROM Users
+LEFT JOIN Bookings ON Users.user_id = Bookings.user_id
+ORDER BY Users.user_id,Bookings.user_id;
+
+-- Q6: Subquery and filtering above average cost
+SELECT booking_id, match_id, TRUNC(total_cost) AS total_cost
+FROM Bookings 
+WHERE total_cost > (SELECT AVG(total_cost) FROM Bookings)
+ORDER BY total_cost DESC;

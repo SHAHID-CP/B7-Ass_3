@@ -15,3 +15,16 @@ CREATE TABLE Users (
             OR (phone_number ~ '^\+[0-9]{7,19}$')
             )
 );
+
+-- Match table-2
+CREATE TABLE Matches (
+    match_id SERIAL,
+    fixture VARCHAR(255) NOT NULL,
+    tournament_category VARCHAR(100) NOT NULL,
+    base_ticket_price NUMERIC(10, 2) NOT NULL,
+    match_status VARCHAR(30) NOT NULL DEFAULT 'Available',
+    
+    CONSTRAINT pk_matches PRIMARY KEY (match_id),
+    CONSTRAINT chk_positive_price CHECK (base_ticket_price >= 0.00),
+    CONSTRAINT chk_match_status CHECK (match_status IN ('Available', 'Selling Fast', 'Sold Out', 'Postponed'))
+);

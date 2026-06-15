@@ -2,7 +2,7 @@
 SELECT match_id, fixture, TRUNC(base_ticket_price) AS base_ticket_price
 FROM Matches 
 WHERE tournament_category = 'Champions League' AND match_status = 'Available'
-ORDER BY base_ticket_price DESC;
+ORDER BY match_id;
 
 -- Q2: Users search using by ILIKE
 SELECT user_id, full_name, email 
